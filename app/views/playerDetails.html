@@ -1,0 +1,34 @@
+<div class="panel panel-default" ng-init="getPlayer()" ng-controller="playerController">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/players"></a> {{player.name}}</h3>
+    </div>
+    <div class="panel-body">
+    <div class="col-md-4">
+        <img src="{{player.photo}}">
+        <ul class="list-group-item-heading">
+            <h3><li><a ng-click="scrollTo('early')">Early life</a></li></h3>
+            <h3><li><a ng-click="scrollTo('career')">Player Career</a></li></h3>
+            <h3><li><a ng-click="scrollTo('personal')">Personal Life</a></li></h3>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <ul class="list-group">
+            <li class="list-group-item">Name : {{player.name}}</li>
+            <li class="list-group-item">Age : {{player.age}}</li>
+            <li class="list-group-item">Nationality : {{player.nationality}}</li>
+            <li class="list-group-item">Team : {{player.team}}</li>
+        </ul>
+        <h3><label id="early">Early Life</label></h3>
+        <p >{{player.early_life}}</p>
+        <h3><label id="career">Player Career</label></h3>
+        <p >{{player.career}}</p>
+        <h3><label id="personal">Personal Life</label></h3>
+        <p >{{player.personal_life}}</p>
+
+    </div>
+        <div class="pull-right" id="div-margin">
+            <a class ="btn btn-warning" id="btn-width" href="#/players/edit/{{player._id}}">Edit</a> <a class="btn btn-danger" id="btn-width1" href="#" ng-click="deletePlayer(player.id)">Delete</a>
+        </div>
+</div>
+
+<div ui-view></div>

@@ -1,0 +1,33 @@
+<div class="panel panel-default" ng-init="getCoach()" ng-controller="coachController">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/coaches"></a> {{coach.name}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4">
+            <img src="{{player.photo}}">
+            <ul class="list-group-item-heading">
+                <h3><li><a ng-click="scrollTo('desc')">Description</a></li></h3>
+                <h3><li><a ng-click="scrollTo('personal')">Personal Life</a></li></h3>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item">Name : {{coach.name}}</li>
+                <li class="list-group-item">Age : {{coach.age}}</li>
+                <li class="list-group-item">Nationality : {{coach.nationality}}</li>
+                <li class="list-group-item">Team : {{coach.current_team}}</li>
+                <li class="list-group-item">Favorite Player : {{coach.favorite_player}}</li>
+            </ul>
+            <h3><label id="desc">Description</label></h3>
+            <p >{{coach.description}}</p>
+            <h3><label id="personal">Personal Life</label></h3>
+            <p >{{coach.personal_life}}</p>
+
+        </div>
+        <div class="pull-right" id="div-margin">
+            <a class ="btn btn-warning" id="btn-width" href="#/coaches/edit/{{coach._id}}">Edit</a> <a class="btn btn-danger" id="btn-width1" href="#" ng-click="deleteCoach(coach._id)">Delete</a>
+        </div>
+    </div>
+</div>
+
+<div ui-view></div>

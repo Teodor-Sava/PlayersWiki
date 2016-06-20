@@ -1,0 +1,28 @@
+<div class = "panel panel-default" ng-init="getTeams()">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/home"></a>Teams</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div ng-repeat="team in teams |filter:search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize">
+
+                <div class = "col-md-6">
+                    <div class="col-md-6">
+                        <img class="img-rounded" src="{{team.photo}}">
+                    </div>
+                    <div class="col-md-6">
+                        <h4>{{team.name}}</h4>
+                        <h5>{{team.country}}</h5>
+                        <h5>{{team.foundation_year}}</h5>
+                        <p>{{team.current|limitTo: 300}}{{team.current.length>2?' ...':''}}</p>
+                        <a class="btn btn-primary" href="#/teams/details/{{team._id}}">Team Details</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <uib-pagination total-items="teams.length" ng-model="currentPage" items-per-page="pageSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
+</div>
+<div ui-view></div>

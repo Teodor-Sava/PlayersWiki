@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/teams"></a> Update Team</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-group" ng-init="getTeam()" ng-submit="editTeam()">
+
+                    <div class="form-group">
+
+                            <label>Name</label>
+                            <input type="text" class="form-control" ng-model="team.name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+
+                        <label>Team ID</label>
+                        <input type="text" class="form-control" ng-model="team._id" placeholder="Team ID">
+                    </div>
+                    <div class="form-group">
+
+                            <label>Foundation Year</label>
+                            <input type="text" class="form-control" ng-model="team.foundation_year"
+                                   placeholder="Foundation Year">
+
+                    </div>
+                    <div class="form-group">
+
+                            <label>Country</label>
+                            <input type="text" class="form-control" ng-model="team.country" placeholder="Country">
+
+                    </div>
+                    <div class="form-group">
+
+                            <label>History</label>
+                            <textarea class="form-control" placeholder="Introduce data about teams history"
+                                      ng-model="team.history"></textarea>
+
+                    </div>
+                    <div class="form-group">
+
+                            <label>Current Team</label>
+                            <textarea class="form-control" placeholder="Introduce data about the current team"
+                                      ng-model="team.current"></textarea>
+
+                    </div>
+                    <div class="form-group">
+                            <label>Introduce team photo</label>
+                            <input type="text" placeholder="Club Image" class="form-control" ng-model="team.photo">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<div ui-view></div>

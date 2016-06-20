@@ -1,0 +1,30 @@
+<div class="panel panel-default" ng-init="getPlayers()">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/home"></a> Football Players</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div ng-repeat="coach in coaches |filter : search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize ">
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <something-new data >
+                            <h3>{{coach.name}}</h3>
+                        </something-new>
+                        <h6>Age : {{coach.age}}</h6>
+                        <h6>Current Team :<a href="#/coaches/details/{{coach.current_team}}"> {{player.team}}</a></h6>
+                        <h6>Nationality : {{coach.nationality}}</h6>
+                        <h6><a href="#/players/details/{{coach.favorite_palyer}}">Favorite Player</a></h6>
+                        <a class="btn btn-primary" href="#/coaches/details/{{coach._id}}">Coach Details</a>
+
+                    </div>
+                    <div class="col-md-6">
+                        <img class="img-circle" src="{{coach.photo}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <uib-pagination total-items="coaches.length" ng-model="currentPage" items-per-page="pageSize"
+                        ng-change="pageChanged()"></uib-pagination>
+    </div>
+</div>
+<div ui-view></div>

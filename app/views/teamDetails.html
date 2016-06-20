@@ -1,0 +1,37 @@
+<div class="panel panel-default" ng-init="getTeam()" ng-controller="teamController">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/teams"></a> {{team.name}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{team.photo}}">
+                <div class="row">
+                    <ol>
+                        <h3><li><a ng-click="scrollTo('history')"> History</a> </li></h3>
+                        <h3>
+                            <li><a ng-click="scrollTo('current')"> Current Team</a> </li>
+                        </h3>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <ul class="list-group">
+                    <li class="list-group-item">Team Name : {{team.name}}</li>
+                    <li class="list-group-item">Foundation Year : {{team.foundation_year}}</li>
+                    <li class="list-group-item">Country : {{team.country}}</li>
+
+                </ul>
+                <h3><label id="history">History </label></h3>
+                <p>{{team.history}}</p>
+                <h3><label id="current">Current Team</label> </h3>
+                <p> {{team.current}}</p>
+
+            </div>
+        </div>
+        <div class="pull-right margin" id="div-margin">
+            <a class ="btn btn-warning" id="btn-width" href="#/teams/edit/{{team._id}}">Edit</a> <a class="btn btn-danger" id="btn-width1" href="#" ng-click="deletePlayer(team.id)">Delete</a>
+        </div>
+    </div>
+</div>
+    <div ui-view></div>

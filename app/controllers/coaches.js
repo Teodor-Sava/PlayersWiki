@@ -8,7 +8,7 @@ angular
         $scope.pageSize=6;
         $scope.currentPage=1;
         $scope.getPlayers = function () {
-            $http.get('/api/coaches').success(function (response) {
+            $http.get('/api/players').success(function (response) {
                 $scope.players = response;
             });
         };

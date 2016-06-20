@@ -5,53 +5,55 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <form class="form-group" ng-init="getTeam()" ng-submit="editTeam()">
+                <form class="form-group" ng-init="getTeam()" ng-submit="updateTeam()">
 
                     <div class="form-group">
 
-                            <label>Name</label>
-                            <input type="text" class="form-control" ng-model="team.name" placeholder="Name">
+                        <label>Team Name</label>
+                        <div role="alert">
+                            <input type="text" class="form-control" ng-model="team._id"
+                                   placeholder="Team Name" required>
+                        </div>
                     </div>
                     <div class="form-group">
-
-                        <label>Team ID</label>
-                        <input type="text" class="form-control" ng-model="team._id" placeholder="Team ID">
+                        <label>Foundation Year</label>
+                        <div role="alert">
+                            <input type="text" class="form-control"  ng-model="team.foundation_year"
+                                   placeholder="Foundation Year" required>
+                        </div>
                     </div>
                     <div class="form-group">
-
-                            <label>Foundation Year</label>
-                            <input type="text" class="form-control" ng-model="team.foundation_year"
-                                   placeholder="Foundation Year">
-
+                        <label>Country</label>
+                        <div role="alert">
+                            <input type="text" class="form-control" ng-model="team.country"
+                                   placeholder="Country" required>
+                        </div>
                     </div>
                     <div class="form-group">
-
-                            <label>Country</label>
-                            <input type="text" class="form-control" ng-model="team.country" placeholder="Country">
-
-                    </div>
-                    <div class="form-group">
-
-                            <label>History</label>
+                        <label>History</label>
+                        <div role="alert">
                             <textarea class="form-control" placeholder="Introduce data about teams history"
-                                      ng-model="team.history"></textarea>
-
+                                      ng-model="team.history" required></textarea>
+                        </div>
                     </div>
                     <div class="form-group">
-
-                            <label>Current Team</label>
-                            <textarea class="form-control" placeholder="Introduce data about the current team"
-                                      ng-model="team.current"></textarea>
-
+                        <label>Current Team</label>
+                        <div role="alert">
+                           <textarea class="form-control" placeholder="Introduce data about the current team"
+                                     ng-model="team.current" required></textarea>
+                        </div>
                     </div>
                     <div class="form-group">
-                            <label>Introduce team photo</label>
-                            <input type="text" placeholder="Club Image" class="form-control" ng-model="team.photo">
+                        <label>Introduce team photo</label>
+                        <div role="alert">
+                            <input type="text" placeholder="Club Image" class="form-control" ng-model="team.photo"
+                                   required>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
-                </div>
             </div>
         </div>
     </div>
+</div>
 <div ui-view></div>

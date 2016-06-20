@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var playerSchema = mongoose.Schema({
-    name:{
+    _id:{
         type:String,
         required :true
     },
@@ -10,10 +10,6 @@ var playerSchema = mongoose.Schema({
         required : true
     },
     nationality:{
-        type:String,
-        required :true
-    },
-    team :{
         type:String,
         required :true
     },
@@ -60,10 +56,8 @@ module.exports.addPlayer = function(player,callback){
 module.exports.updatePlayer = function(id,player , option, callback){
     var query = {_id:id};
     var update = {
-        name : player.name,
         age : player.age,
         nationality : player.nationality,
-        team : player.team,
         early_life : player.early_life,
         career : player.career,
         personal_life : player.personal_life,

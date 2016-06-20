@@ -23,7 +23,7 @@ angular
                 $state.go('/teams');
             });
         };
-        $scope.editTeam = function(){
+        $scope.updateTeam = function(){
             var id = $stateParams.id;
             $http.put('/api/teams/'+id,$scope.team).success(function (response) {
                 $state.go('/teams');

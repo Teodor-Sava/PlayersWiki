@@ -1,6 +1,6 @@
 <div class="panel panel-default" ng-init="getPlayer()" ng-controller="playerController">
     <div class="panel-heading">
-        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/players"></a> {{player.name}}</h3>
+        <h3 class="panel-title"><a class="glyphicon glyphicon-arrow-left" href="#/players"></a> {{player._id}}</h3>
     </div>
     <div class="panel-body">
     <div class="col-md-4">
@@ -13,10 +13,10 @@
     </div>
     <div class="col-md-8">
         <ul class="list-group">
-            <li class="list-group-item">Name : {{player.name}}</li>
+            <li class="list-group-item">Name : {{player._id}}</li>
             <li class="list-group-item">Age : {{player.age}}</li>
             <li class="list-group-item">Nationality : {{player.nationality}}</li>
-            <li class="list-group-item">Team : {{player.team}}</li>
+            <li class="list-group-item">Team : {{player.team_id}}</li>
         </ul>
         <h3><label id="early">Early Life</label></h3>
         <p >{{player.early_life}}</p>

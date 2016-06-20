@@ -5,10 +5,6 @@ var teamSchema = mongoose.Schema({
         type:String,
         required :true
     },
-    name:{
-        type:String,
-        required:true
-    },
     foundation_year:{
         type:String,
         required :true
@@ -46,7 +42,7 @@ module.exports.addTeam= function (team,callback){
 module.exports.updateTeam = function(id ,team , option,callback){
     var query = {_id:id};
     var update={
-        name : team.name,
+        _id:team._id,
         foundation_year : team.foundation_year,        
         country : team.country,
         history : team.history,

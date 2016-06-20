@@ -2,13 +2,10 @@ var myApp = angular.module('myApp', [
     'ui.router',
     'ui.bootstrap'
 ]);
-    myApp.config(['$stateProvider',function($stateProvider){
+    myApp.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+        $urlRouterProvider.otherwise('/home');
+        
    $stateProvider
-       .state('/',{
-       url:'/',
-       templateUrl:'/views/login.html',
-       controller:'loginController'
-   })
        .state('/home',{
            url:'/home',
            templateUrl:'/views/home.html'

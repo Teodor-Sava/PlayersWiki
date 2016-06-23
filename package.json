@@ -1,5 +1,5 @@
 {
-  "name": "angular",
+  "name": "exam",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -30,5 +30,8 @@
     "morgan": "*",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

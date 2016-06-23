@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-
 var playerSchema = mongoose.Schema({
     _id:{
         type:String,
-        required :true
+        required :true,
+        unique: true
     },
     age:{
         type:Number,
@@ -50,6 +50,7 @@ module.exports.getPlayerById = function(id,callback){
 };
 
 module.exports.addPlayer = function(player,callback){
+    db.collection.distinct('NetworkID')
     Player.create(player,callback);
 };
 

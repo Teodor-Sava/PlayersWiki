@@ -1,6 +1,6 @@
 angular
     .module('myApp')
-    .controller('playerController', ['$scope', '$http', '$state', '$stateParams', '$location', '$anchorScroll', function ($scope, $http, $state, $stateParams, $location, $anchorScroll) {
+    .controller('playerController', ['$scope', '$http', '$state', '$stateParams', '$location', '$anchorScroll','dataFactory', function ($scope, $http, $state, $stateParams, $location, $anchorScroll,dataFactory) {
         $scope.scrollTo = function (scrollLocation) {
             $location.hash(scrollLocation);
             $anchorScroll();
@@ -12,11 +12,11 @@ angular
                 $scope.players = response;
             });
         };
-        $scope.getTeams = function () {
-            $http.get('/api/teams').success(function (response) {
-                $scope.teams = response;
-            });
-        };
+        $scope.getTeams=function(){
+           dataFactory.getTeams().then(function(response){
+               $scope.teams = response.data ;
+           });
+       }
         $scope.getPlayer = function () {
             var id = $stateParams.id;
             $http.get('/api/players/' + id).success(function (response) {

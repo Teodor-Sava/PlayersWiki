@@ -1,12 +1,18 @@
 angular
     .module('myApp')
-    .controller('teamController',['$scope','$http','$state','$stateParams','$location','$anchorScroll' ,function($scope,$http,$state,$stateParams,$location,$anchorScroll){
+    .controller('teamController',['$scope','$http','$state','$stateParams','$location','$anchorScroll','dataFactory' ,function($scope,$http,$state,$stateParams,$location,$anchorScroll,dataFactory){
         $scope.scrollTo = function(scrollLocation){
             $location.hash(scrollLocation);
             $anchorScroll();
         };
         $scope.pageSize=4;
         $scope.currentPage=1;
+        $scope.getCoaches = function(){
+            dataFactory.getCoaches().then(function (response) {
+                $scope.coaches = response.data ;
+            })
+        };
+       
         $scope.getTeams = function(){
             $http.get('/api/teams').success(function (response) {
                 $scope.teams = response;
@@ -18,6 +24,11 @@ angular
                 $scope.team = response;
             });
         };
+        $scope.isCoach = function (coach){
+            if(coach){
+                return true;
+            }return false
+                };
         $scope.addTeam = function () {
             $http.post('/api/teams/',$scope.team).success(function (response) {
                 $state.go('/teams');

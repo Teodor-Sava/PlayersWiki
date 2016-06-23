@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div ng-repeat="coach in coaches |filter : search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize ">
+            <div ng-repeat="coach in coaches |filterSearch:search| startFrom:(currentPage - 1)*pageSize | limitTo:pageSize ">
                 <div class="col-md-6">
                     <div class="col-md-6">
                         <something-new data >

@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var coachSchema = mongoose.Schema({
     _id : {
         type : String,
-        required :true
+        required :true,
+        unique: true
     },
     age : {
         type : Number,

@@ -1,22 +1,23 @@
 angular
     .module('myApp')
-    .controller('coachController',['$scope','$http','$state','$stateParams','$location','$anchorScroll' ,function($scope,$http,$state,$stateParams,$location,$anchorScroll) {
+    .controller('coachController',['$scope','$http','$state','$stateParams','$location','$anchorScroll','dataFactory' ,function($scope,$http,$state,$stateParams,$location,$anchorScroll,dataFactory) {
         $scope.scrollTo = function(scrollLocation){
             $location.hash(scrollLocation);
             $anchorScroll();
         };
         $scope.pageSize=6;
         $scope.currentPage=1;
-        $scope.getPlayers = function () {
-            $http.get('/api/players').success(function (response) {
-                $scope.players = response;
-            });
+        $scope.getPlayers = function(){
+            dataFactory.getPlayers().then(function (response) {
+                $scope.players = response.data;
+            })
         };
-        $scope.getTeams = function(){
-            $http.get('/api/teams').success(function (response) {
-                $scope.teams = response;
-            });
+        $scope.getTeams= function(){
+            dataFactory.getTeams().then(function (response) {
+                $scope.teams = response.data;
+            })
         };
+
         $scope.getCoaches = function(){
             $http.get('/api/coaches').success(function(response){
                 $scope.coaches = response ;

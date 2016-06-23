@@ -19,7 +19,7 @@ var db = mongoose.connection;
 app.get('/api/teams', function(req,res){
     Teams.getTeams(function (err,team){
         if(err){
-            throw err;
+            res.json(err);
         }
         res.json(team)
     })
@@ -32,7 +32,7 @@ app.get('/api/teams/:_id',function(req,res){
         }
         res.json(team);
     })
-})
+});
 
 app.post('/api/teams',function(req,res){
     var team = req.body;
@@ -97,7 +97,7 @@ app.post('/api/players',function(req,res){
 
 app.put('/api/players/:_id',function(req,res){
     var player = req.body;
-    var id =req.params._id;
+    var id = req.params._id;
     Players.updatePlayer(id, player ,{},function(err,player){
         if(err){
             throw err ;

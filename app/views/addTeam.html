@@ -10,7 +10,8 @@
 
                         <label>Team ID</label>
                         <div role="alert">
-                            <input type="text" class="form-control" ng-model="team._id" name="name" placeholder="Team ID" required>
+                            <input type="text" class="form-control" ng-model="team._id" name="name"
+                                   placeholder="Team ID" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -23,7 +24,16 @@
                     <div class="form-group">
                         <label>Country</label>
                         <div role="alert">
-                            <input type="text" class="form-control" name="country" ng-model="team.country" placeholder="Country" required>
+                            <input type="text" class="form-control" name="country" ng-model="team.country"
+                                   placeholder="Country" required>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-init="getCoaches()">
+                        <label>Coach</label>
+                        <div role="alert">
+                            <select class="form-control" required ng-model="team.coach">
+                                <option ng-repeat="coach in coaches">{{coach._id}}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -43,7 +53,8 @@
                     <div class="form-group">
                         <label>Introduce team photo</label>
                         <div role="alert">
-                            <input type="text" placeholder="Club Image" class="form-control" ng-model="team.photo" required>
+                            <input type="text" placeholder="Club Image" class="form-control" ng-model="team.photo"
+                                   required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Team</button>

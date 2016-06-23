@@ -29,6 +29,14 @@
                                    placeholder="Country" required>
                         </div>
                     </div>
+                    <div class="form-group" ng-init="getCoaches()">
+                        <label>Coach</label>
+                        <div role="alert">
+                            <select class="form-control" required ng-model="team.coach">
+                                <option ng-repeat="coach in coaches">{{coach._id}}</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>History</label>
                         <div role="alert">

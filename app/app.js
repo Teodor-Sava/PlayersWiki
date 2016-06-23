@@ -73,10 +73,6 @@ var myApp = angular.module('myApp', [
            controller:'coachController'
        })
     }])
+
         
-        .filter('startFrom',function(){
-            return function(data,start){
-                return data.slice(start);
-            }
-        });
 

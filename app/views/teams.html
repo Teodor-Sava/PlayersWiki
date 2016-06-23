@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div ng-repeat="team in teams |filter:search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize">
+            <div ng-repeat="team in teams |filterSearch:search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize">
 
                 <div class = "col-md-6">
                     <div class="col-md-6">
@@ -14,6 +14,7 @@
                         <h4>{{team._id}}</h4>
                         <h5>{{team.country}}</h5>
                         <h5>{{team.foundation_year}}</h5>
+                        <h5 ng-hide="!isCoach(team.coach)">Coach: <a href ="#/coaches/team.coach">{{team.coach}}</a></h5>
                         <p>{{team.current|limitTo: 300}}{{team.current.length>2?' ...':''}}</p>
                         <a class="btn btn-primary" href="#/teams/details/{{team._id}}">Team Details</a>
 

@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var teamSchema = mongoose.Schema({
     _id:{
         type:String,
-        required :true
+        required :true,
+        unique: true
     },
     foundation_year:{
         type:String,
@@ -24,6 +25,9 @@ var teamSchema = mongoose.Schema({
     photo:{
         type:String,
         required:true
+    },
+    coach : {
+        type : String
     }
 
 });
@@ -47,7 +51,8 @@ module.exports.updateTeam = function(id ,team , option,callback){
         country : team.country,
         history : team.history,
         current : team.current,
-        photo : team.photo
+        photo : team.photo,
+        coach : team.coach
     };
     Team.findOneAndUpdate(query,update,option , callback);
 

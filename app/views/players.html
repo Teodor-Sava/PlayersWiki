@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div ng-repeat="player in players |filter : search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize ">
+            <div ng-repeat="player in players |filterSearch:search | startFrom:(currentPage - 1)*pageSize | limitTo:pageSize ">
                 <div class="col-md-6">
                     <div class="col-md-6">
                             <h3>{{player._id}}</h3>
